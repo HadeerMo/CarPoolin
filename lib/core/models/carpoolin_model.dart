@@ -16,8 +16,8 @@ class CarpoolinModel {
   final String driverDetails;
   final Car driverCar;
 
-  CarpoolinModel(
-    this.id, {
+  CarpoolinModel({
+    required this.id,
     required this.image,
     required this.driverName,
     required this.fromDate,
@@ -32,4 +32,25 @@ class CarpoolinModel {
     required this.driverDetails,
     required this.driverCar,
   });
+
+  factory CarpoolinModel.fromJson(Map<String, dynamic> json) => CarpoolinModel(
+        id: json['id'] as int,
+        image: json['image'] as String,
+        from: json['from'] as String,
+        to: json['to'] as String,
+        driverDetails: json['driverDetails'] as String,
+        driverName: json['driverName'] as String,
+        fare: json['fare'] as double,
+        fromAddress: json['fromAddress'] as String,
+        toAddress: json['toAddress'] as String,
+        fromDate: json['fromDate'] as DateTime,
+        toDate: json['toDate'] as DateTime,
+        rate: json['rate'] as double,
+        reviewsNum: json['reviewsNum'] as int,
+        driverCar: Car(
+          id: json['driverCar']['id'],
+          type: json['driverCar']['type'],
+          color: json['driverCar']['color'],
+        ),
+      );
 }
