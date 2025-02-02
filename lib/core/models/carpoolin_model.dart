@@ -1,8 +1,7 @@
 import 'package:car_pooling/core/models/car.dart';
-import 'package:car_pooling/features/search_page/domain/entities/search_entity.dart';
 
-class CarpoolinModel extends SearchEntity {
-  final String id;
+class CarpoolinModel {
+  final int id;
   final String image;
   final String driverName;
   final DateTime fromDate;
@@ -13,7 +12,7 @@ class CarpoolinModel extends SearchEntity {
   final String fromAddress;
   final String toAddress;
   final double rate;
-  final int reviews;
+  final int reviewsNum;
   final String driverDetails;
   final Car driverCar;
 
@@ -29,17 +28,8 @@ class CarpoolinModel extends SearchEntity {
     required this.fromAddress,
     required this.toAddress,
     required this.rate,
-    required this.reviews,
+    required this.reviewsNum,
     required this.driverDetails,
     required this.driverCar,
-  }) : super(
-          carPoolinId: id,
-          fromTime: fromDate.timeZoneName.toString(),
-          toTime: toDate.timeZoneName.toString(),
-          fromPlace: from,
-          toPlace: to,
-          imagePath: image,
-          nameOfDriver: driverName,
-          driverFare: fare,
-        );
+  });
 }
