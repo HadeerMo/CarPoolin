@@ -1,6 +1,5 @@
-import 'package:car_pooling/constants.dart';
 import 'package:car_pooling/features/search_page/presentation/widgets/custom_search_appbar.dart';
-import 'package:car_pooling/features/search_page/presentation/widgets/search_resulr_item.dart';
+import 'package:car_pooling/features/search_page/presentation/widgets/search_result_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
 class SearchPageBody extends StatelessWidget {
@@ -8,19 +7,12 @@ class SearchPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        CustomSearchAppbar(),
-        SearchResultItem(
-          backgroundColor: Colors.white,
-          foregroundColor: kButtonColor,
-          secoundaryColor: Colors.black,
+    return const CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: CustomSearchAppbar(),
         ),
-        SearchResultItem(
-          backgroundColor: kButtonColor,
-          foregroundColor: Colors.white,
-          secoundaryColor: kappMainColor,
-        ),
+        SearchResultBlocBuilder(),
       ],
     );
   }

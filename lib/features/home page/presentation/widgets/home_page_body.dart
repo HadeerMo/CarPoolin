@@ -1,9 +1,7 @@
-import 'package:car_pooling/constants.dart';
 import 'package:car_pooling/core/utils/functions/app_router.dart';
 import 'package:car_pooling/core/widgets/custom_button.dart';
 import 'package:car_pooling/features/home%20page/presentation/widgets/chose_date_widget.dart';
 import 'package:car_pooling/features/home%20page/presentation/widgets/chose_number_of_passengers.dart';
-import 'package:car_pooling/features/home%20page/presentation/widgets/custom_checkbox_button.dart';
 import 'package:car_pooling/features/home%20page/presentation/widgets/custom_home_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

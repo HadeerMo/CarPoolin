@@ -4,8 +4,8 @@ class CarpoolinModel {
   final int id;
   final String image;
   final String driverName;
-  final DateTime fromDate;
-  final DateTime toDate;
+  final String fromDate;
+  final String toDate;
   final double fare;
   final String from;
   final String to;
@@ -43,8 +43,8 @@ class CarpoolinModel {
         fare: json['fare'] as double,
         fromAddress: json['fromAddress'] as String,
         toAddress: json['toAddress'] as String,
-        fromDate: json['fromDate'] as DateTime,
-        toDate: json['toDate'] as DateTime,
+        fromDate: json['fromDate'] as String,
+        toDate: json['toDate'] as String,
         rate: json['rate'] as double,
         reviewsNum: json['reviewsNum'] as int,
         driverCar: Car(
