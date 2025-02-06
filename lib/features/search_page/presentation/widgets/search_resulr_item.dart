@@ -150,6 +150,7 @@ class SearchResultItem extends StatelessWidget {
                   children: [
                     CustomImageContainer(
                       imageUrl: carpoolinModel.image,
+                      size: MediaQuery.of(context).size.width * .13,
                     ),
                     const SizedBox(
                       width: 25,

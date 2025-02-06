@@ -1,111 +1,73 @@
-import 'package:car_pooling/constants.dart';
 import 'package:car_pooling/core/models/carpoolin_model.dart';
-import 'package:car_pooling/core/utils/methods/custom_border_radius.dart';
-import 'package:car_pooling/core/widgets/custom_map_divider.dart';
-import 'package:car_pooling/features/search_page/presentation/widgets/custom_item_carpoolin_appbar.dart';
+import 'package:car_pooling/core/widgets/custom_button.dart';
+import 'package:car_pooling/features/search_page/presentation/widgets/car_info.dart';
+import 'package:car_pooling/features/search_page/presentation/widgets/customer_car_booking_appbar.dart';
+import 'package:car_pooling/features/search_page/presentation/widgets/user_info.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 
 class CarBookingBody extends StatelessWidget {
   const CarBookingBody({super.key, required this.carpoolinModel});
   final CarpoolinModel carpoolinModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomCarBookingAppbar(
-          carpoolinModel: carpoolinModel,
-        ),
-      ],
-    );
-  }
-}
-
-class CustomCarBookingAppbar extends StatelessWidget {
-  const CustomCarBookingAppbar({
-    super.key,
-    required this.carpoolinModel,
-  });
-  final CarpoolinModel carpoolinModel;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: kappMainColor,
-        borderRadius: customBorderRadius(),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 35),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 40,
-            ),
-            Row(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).pop();
-                  },
-                  child: const Icon(
-                    FontAwesomeIcons.angleLeft,
-                    color: Colors.white,
-                    size: 26,
-                  ),
-                ),
-                Text(
-                  '${carpoolinModel.fare} LE',
-                  style: const TextStyle(
-                    color: kButtonColor,
-                    fontSize: 21.5,
-                    fontWeight: FontWeight.bold,
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const CustomMapDivider(
-                  color: Colors.white,
-                  borderColor: Color.fromARGB(255, 217, 242, 250),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomItemCarPoolinAppbar(
-                      date: '${carpoolinModel.fromDate.split('T')[1].split(':')[0]}:${carpoolinModel.fromDate.split('T')[1].split(':')[1]}',
-                      destination: carpoolinModel.from,
-                      destinationDetails: carpoolinModel.fromAddress,
+                    CustomCarBookingAppbar(carpoolinModel: carpoolinModel),
+                    const SizedBox(height: 50),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 35),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          UserInfo(carpoolinModel: carpoolinModel),
+                          const SizedBox(height: 30),
+                          CarInfo(car: carpoolinModel.driverCar),
+                          const SizedBox(height: 40),
+                        ],
+                      ),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomItemCarPoolinAppbar(
-                        date: '${carpoolinModel.toDate.split('T')[1].split(':')[0]}:${carpoolinModel.toDate.split('T')[1].split(':')[1]}',
-                      destination: carpoolinModel.to,
-                      destinationDetails: carpoolinModel.toAddress,
-                    )
                   ],
-                )
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+                  child: Column(
+                    children: [
+                      const CustomButton(child: 'Order Now'),
+                      const SizedBox(height: 17),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * .73,
+                        child: const Opacity(
+                          opacity: .3,
+                          child: Center(
+                            child: Text(
+                              textAlign: TextAlign.center,
+                              'By clicking on "Order Now" button I agree with Terms and Policies of using Carpoolin.',
+                              softWrap: true,
+                              style: TextStyle(
+                                  fontSize: 11.5, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 50,),
+                    ],
+                  ),
+                ),
               ],
             ),
-            const SizedBox(
-              height: 45,
-            ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
