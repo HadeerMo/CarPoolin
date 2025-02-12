@@ -1,5 +1,6 @@
 import 'package:car_pooling/constants.dart';
 import 'package:car_pooling/core/utils/methods/custom_border_radius.dart';
+import 'package:car_pooling/core/widgets/custom_appbar.dart';
 import 'package:car_pooling/features/login_page/presentation/widgets/custom_login_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -10,13 +11,8 @@ class CustomLoginAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: kappMainColor,
-        borderRadius: customBorderRadius(),
-      ),
-      child: const Column(
+    return const CustomAppbar(
+      child: Column(
         children: [
           SizedBox(
             height: 45,

@@ -1,7 +1,9 @@
 import 'package:car_pooling/core/models/carpoolin_model.dart';
+import 'package:car_pooling/core/utils/functions/app_router.dart';
 import 'package:car_pooling/features/search_page/presentation/widgets/custom_image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({
@@ -25,11 +27,16 @@ class UserInfo extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              carpoolinModel.driverName,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+            GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.driveProfilePagePath,extra: carpoolinModel);
+              },
+              child: Text(
+                carpoolinModel.driverName,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
             const SizedBox(

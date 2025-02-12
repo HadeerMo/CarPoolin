@@ -1,4 +1,6 @@
 import 'package:car_pooling/core/models/carpoolin_model.dart';
+import 'package:car_pooling/features/confirmation_page/presentation/pages/confirmation_page.dart';
+import 'package:car_pooling/features/driver_profile/presentation/pages/drive_profile_page.dart';
 import 'package:car_pooling/features/home%20page/presentation/pages/home_page.dart';
 import 'package:car_pooling/features/login_page/presentation/pages/login_page.dart';
 import 'package:car_pooling/features/search_page/presentation/pages/car_booking_page.dart';
@@ -11,6 +13,8 @@ abstract class AppRouter {
   static const homePath = '/home';
   static const searchPagePath = '/search';
   static const carBookingPagePath = '/carBooking';
+  static const confirmationPagePath = '/confirmation';
+  static const driveProfilePagePath = '/driveProfile';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -29,9 +33,21 @@ abstract class AppRouter {
         path: searchPagePath,
         builder: (context, state) => const SearchPage(),
       ),
-        GoRoute(
+      GoRoute(
         path: carBookingPagePath,
-        builder: (context, state) => CarBookingPage(carpoolinModel: state.extra as CarpoolinModel,),
+        builder: (context, state) => CarBookingPage(
+          carpoolinModel: state.extra as CarpoolinModel,
+        ),
+      ),
+      GoRoute(
+        path: confirmationPagePath,
+        builder: (context, state) => const ConfirmationPage(),
+      ),
+      GoRoute(
+        path: driveProfilePagePath,
+        builder: (context, state) => DriveProfilePage(
+          carpoolinModel: state.extra as CarpoolinModel,
+        ),
       ),
     ],
   );
