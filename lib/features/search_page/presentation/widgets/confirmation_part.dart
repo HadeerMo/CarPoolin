@@ -30,7 +30,7 @@ class ConfirmationPart extends StatelessWidget {
                   textAlign: TextAlign.center,
                   'By clicking on "Order Now" button I agree with Terms and Policies of using Carpoolin.',
                   softWrap: true,
-                  style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 11.5, fontWeight: FontWeight.bold,height: 1.7),
                 ),
               ),
             ),

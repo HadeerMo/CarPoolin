@@ -10,7 +10,8 @@ class CustomDriveProfileTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(fontSize: 16.5, fontWeight: FontWeight.bold),
+      style: const TextStyle(fontSize: 16.5, fontWeight: FontWeight.bold,height: 1.7),
+      softWrap: true,
     );
   }
 }
