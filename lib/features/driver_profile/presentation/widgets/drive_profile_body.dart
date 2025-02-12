@@ -1,8 +1,5 @@
-import 'package:car_pooling/constants.dart';
 import 'package:car_pooling/core/models/carpoolin_model.dart';
-import 'package:car_pooling/core/utils/methods/custom_border_radius.dart';
 import 'package:car_pooling/features/driver_profile/presentation/widgets/custom_drive_profile_appbar.dart';
-import 'package:car_pooling/features/driver_profile/presentation/widgets/custom_drive_profile_title.dart';
 import 'package:car_pooling/features/driver_profile/presentation/widgets/drive_profile_licence_part.dart';
 import 'package:car_pooling/features/driver_profile/presentation/widgets/drive_profile_rating_part.dart';
 import 'package:car_pooling/features/driver_profile/presentation/widgets/driver_profile_details_part.dart';

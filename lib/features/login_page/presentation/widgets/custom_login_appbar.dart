@@ -1,5 +1,3 @@
-import 'package:car_pooling/constants.dart';
-import 'package:car_pooling/core/utils/methods/custom_border_radius.dart';
 import 'package:car_pooling/core/widgets/custom_appbar.dart';
 import 'package:car_pooling/features/login_page/presentation/widgets/custom_login_logo.dart';
 import 'package:flutter/material.dart';
